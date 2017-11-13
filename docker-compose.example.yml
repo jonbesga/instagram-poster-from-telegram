@@ -1,0 +1,27 @@
+version: '3'
+services:
+  db:
+    image: postgres:latest
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=teleinstagram
+  bot:
+    build: .
+    command: npm run start:dev
+    depends_on:
+      - db
+    environment:
+      - BOT_TOKEN=
+      - WEBHOOK_URL=
+      - HOST=0.0.0.0
+      - PORT=3000
+      - DATABASE_URL=postgres://postgres@db:5432/teleinstagram
+      - DATABASE_NAME=teleinstagram
+      - DATABASE_HOST=db
+      - STRIPE_PUBLIC_KEY=
+      - STRIPE_SECRET_KEY=
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/code

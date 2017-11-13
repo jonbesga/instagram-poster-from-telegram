@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Social Media Poster
+  body
+    h1 Social Media Poster
+    p Auto publish your photos from Telegram to Instagram!
+    form(action="/subscription/checkout" method="POST")
+    script(
+      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key=stripePublicKey
+      data-amount="500"
+      data-name="Social Media Poster"
+      data-description="Subscription to Social Media Poster bot"
+      data-image="checkout-icon.png"
+      data-locale="auto"
+      data-zip-code="false"
+      data-currency="usd")
